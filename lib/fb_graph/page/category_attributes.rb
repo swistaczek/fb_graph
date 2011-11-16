@@ -95,8 +95,10 @@ module FbGraph
             date, index, mode = key.split('_')
             index = index.to_i - 1
             date, mode = date.to_sym, mode.to_sym
-            time = value.since(utc_beginning_of_day)
-            time = Time.utc(1970, 1, 1, time.hour, time.min)
+#            TODO: FIX
+#            time = value.since(utc_beginning_of_day)
+#            time = Time.utc(1970, 1, 1, time.hour, time.min)
+            time = Time.utc(1970, 1, 1, 12, 0)
             @hours[date] ||= []
             @hours[date][index] ||= {}
             @hours[date][index][mode] = time
